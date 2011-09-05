@@ -1,6 +1,6 @@
 #include "vtkSequentialStream.h"
 
-vtkSequentialStream::vtkSequentialStream( std::istream &is )
+vtkSequentialStream::vtkSequentialStream( vtksys_ios::istream &is )
   : is(is), ref_count(0)
 {
   InitializeCriticalSection( &this->critical_section );

@@ -2,12 +2,13 @@
 #define vtkSequentialStreamH 1
 
 #include <Objidl.h>
-#include <istream>
+
+#include <vtksys/ios/istream>
 
 class vtkSequentialStream : public ISequentialStream
 {
 public:
-  vtkSequentialStream( std::istream &is );
+  vtkSequentialStream( vtksys_ios::istream &is );
   virtual ~vtkSequentialStream( void );
 
   // IUnknown
@@ -20,7 +21,7 @@ public:
   virtual HRESULT __stdcall Write( void const *pv, ULONG cb, ULONG *pcbWritten );
   
 protected:
-  std::istream &is;
+  vtksys_ios::istream &is;
   CRITICAL_SECTION critical_section;
   ULONG ref_count;
 };
