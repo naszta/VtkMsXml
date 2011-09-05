@@ -3,7 +3,7 @@
 
 #include <Objidl.h>
 
-#include <vtksys/ios/istream>
+#include <vtksys/ios/iostream>
 
 class vtkSequentialStream : public ISequentialStream
 {

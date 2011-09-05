@@ -37,6 +37,7 @@ vtkXMLDataElement * vtkMsXmlParser::ParseStream( vtksys_ios::istream &is )
   if ( FAILED(CoInitialize(NULL)) )
     return 0;
 
+  ISAXXMLReader * reader = 0;
   if ( FAILED( CoCreateInstance( __uuidof(SAXXMLReader60), NULL, CLSCTX_ALL, __uuidof(ISAXXMLReader), (void**) &reader ) ) )
   {
     CoUninitialize();
