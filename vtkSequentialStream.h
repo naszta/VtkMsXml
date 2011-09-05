@@ -4,7 +4,7 @@
 #include <Objidl.h>
 #include <istream>
 
-class vtkSequentialStream : public 
+class vtkSequentialStream : public ISequentialStream
 {
 public:
   vtkSequentialStream( std::istream &is );
