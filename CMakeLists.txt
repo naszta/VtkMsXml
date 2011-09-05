@@ -19,11 +19,13 @@ INCLUDE_DIRECTORIES(
 SET(VtkMsXmlSrcs
   vtkMsXmlParser.cxx
   vtkContentHandler.cxx
+  vtkSequentialStream.cxx
 )
 
 SET(VtkMsXmlHdrs
   vtkMsXmlParser.h
   vtkContentHandler.h
+  vtkSequentialStream.h
   vtkMsXmlExport.h
 )
 
