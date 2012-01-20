@@ -47,13 +47,18 @@ HRESULT __stdcall vtkSequentialStream::Read( void *pv, ULONG cb, ULONG *pcbRead 
 {
   EnterCriticalSection( &this->critical_section );
   this->is.read( reinterpret_cast<char*>(pv), cb );
-  *pcbRead = static_cast<ULONG>( this->is.gcount() );
+  ULONG bytesRead = static_cast<ULONG>( this->is.gcount() );
   LeaveCriticalSection( &this->critical_section );
+  
+  if ( pcbRead != NULL )
+    *pcbRead = bytesRead;
+  
+  if ( bytesRead < cb )
+    return S_FALSE;
   return S_OK;
 }
 
 HRESULT __stdcall vtkSequentialStream::Write( void const *pv, ULONG cb, ULONG *pcbWritten )
 {
-  *pcbWritten = cb;
-  return S_OK;
+  return STG_E_ACCESSDENIED;
 }
